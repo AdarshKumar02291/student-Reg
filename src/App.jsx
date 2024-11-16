@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link,Navigate } from "react-router-dom";
 import StudentRegistration from "./pages/StudentRegistration";
 import ViewStudents from "./pages/ViewStudents";
 
@@ -100,7 +100,7 @@ const App = () => {
 
       <main className="mt-4">
         <Routes>
-          <Route path="/" element={<StudentRegistration />} />
+          <Route path="/" element={<Navigate to="/student-registration" replace />} />
           <Route
             path="/student-registration"
             element={<StudentRegistration />}
