@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteStudent, editStudent } from "../redux/studentSlice";
 import { Link } from "react-router-dom";
+import { InputBox } from "../components/InputBox";
 
 const ViewStudents = () => {
   const students = useSelector((state) => state.students.students);
@@ -166,45 +167,33 @@ const ViewStudents = () => {
                       </h6>
                       <hr />
                     </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">First Name</label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={editFormData.firstName}
-                        className="form-control"
-                        required
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">Last Name</label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={editFormData.lastName}
-                        className="form-control"
-                        required
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">
-                        Father's Name
-                      </label>
-                      <input
-                        type="text"
-                        name="fatherName"
-                        value={editFormData.fatherName}
-                        className="form-control"
-                        required
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
+                    <InputBox
+                      type="text"
+                      name="firstName"
+                      label="First Name"
+                      placeholder="Enter first name"
+                      value={editFormData.firstName}
+                      required
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="text"
+                      name="lastName"
+                      label="Last Name"
+                      placeholder="Enter last name"
+                      value={editFormData.lastName}
+                      required
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="text"
+                      name="fatherName"
+                      label="Father's Name"
+                      placeholder="Enter father's name"
+                      value={editFormData.fatherName}
+                      required
+                      onChange={handleEditInputChange}
+                    />
                     <div className="col-md-6">
                       <label className="form-label fw-bold">Gender</label>
                       <div className="d-flex gap-4 mt-2">
@@ -240,73 +229,55 @@ const ViewStudents = () => {
                       </h6>
                       <hr />
                     </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={editFormData.email}
-                        className="form-control"
-                        required
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">
-                        Mobile Number
-                      </label>
-                      <input
-                        type="text"
-                        name="mobile"
-                        value={editFormData.mobile}
-                        className="form-control"
-                        required
-                        pattern="\d*"
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
-                    <div className="col-12">
-                      <label className="form-label fw-bold">Address</label>
-                      <textarea
-                        name="address"
-                        value={editFormData.address}
-                        className="form-control"
-                        rows="3"
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-                    <hr />
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">
-                        Date of Birth
-                      </label>
-                      <input
-                        type="date"
-                        name="dob"
-                        value={editFormData.dob}
-                        className="form-control"
-                        required
-                        onChange={handleEditInputChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-bold">Country</label>
-                      <select
-                        name="country"
-                        value={editFormData.country}
-                        className="form-select"
-                        required
-                        onChange={handleEditInputChange}
-                      >
-                        <option value="">Select Country</option>
-                        <option value="India">India</option>
-                        <option value="USA">USA</option>
-                      </select>
-                    </div>
+                    <InputBox
+                      type="email"
+                      name="email"
+                      label="Email"
+                      placeholder="Enter email"
+                      value={editFormData.email}
+                      required
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="text"
+                      name="mobile"
+                      label="Mobile Number"
+                      placeholder="Enter mobile number"
+                      value={editFormData.mobile}
+                      required
+                      pattern="\d*"
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="textarea"
+                      name="address"
+                      label="Address"
+                      placeholder="Enter address"
+                      value={editFormData.address}
+                      rows={3}
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="date"
+                      name="dob"
+                      label="Date of Birth"
+                      value={editFormData.dob}
+                      required
+                      onChange={handleEditInputChange}
+                    />
+                    <InputBox
+                      type="select"
+                      name="country"
+                      label="Country"
+                      value={editFormData.country}
+                      required
+                      onChange={handleEditInputChange}
+                      options={[
+                        { label: "Select Country", value: "" },
+                        { label: "India", value: "India" },
+                        { label: "USA", value: "USA" },
+                      ]}
+                    />
                   </div>
                 </div>
 
